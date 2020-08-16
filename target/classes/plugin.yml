@@ -1,6 +1,6 @@
 name: BuddyLocator
 main: io.enderle.buddylocator.Main
-version: 1.0
+version: 1.0.1
 description: BuddyLocator shows your buddy's coordinates on your screen.
 api-version: 1.16
 commands:

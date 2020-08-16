@@ -7,9 +7,12 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scoreboard.*;
 
 import java.util.HashMap;
+import java.util.logging.Logger;
 
 public class Main extends JavaPlugin {
     public static Main plugin = null;
+    Logger logger = this.getLogger();
+
 
     public HashMap<Player, Player> players = null;
 
@@ -21,6 +24,15 @@ public class Main extends JavaPlugin {
 
     public void onEnable() {
         plugin = this;
+
+        new UpdateChecker(this, 82808).getVersion(version -> {
+            if (this.getDescription().getVersion().equalsIgnoreCase(version)) {
+                logger.info("BuddyLocator - There is not a new update available.");
+            } else {
+                logger.info("BuddyLocator - There is a new update available.");
+            }
+        });
+
         this.getCommand("buddylocator").setExecutor(new BLCommandExecutor());
         this.players = new HashMap<>();
         this.showhearts = getConfig().getBoolean("Config.showhearts");
@@ -97,6 +109,9 @@ public class Main extends JavaPlugin {
 
     public void RemoveLocatorBoard(Player p) {
         p.getScoreboard().getObjective(DisplaySlot.SIDEBAR).unregister();
+        if (!this.players.isEmpty()) {
+            this.players.remove(p);
+        }
     }
 
     public void UpdateLocatorBoards(){
@@ -112,7 +127,9 @@ public class Main extends JavaPlugin {
 
     public void RemoveAllLocatorBoards() {
         for (Player p : Bukkit.getOnlinePlayers()) {
-            p.getScoreboard().getObjective(DisplaySlot.SIDEBAR).unregister();
+            if (p.getScoreboard().getObjective(DisplaySlot.SIDEBAR) != null) {
+                p.getScoreboard().getObjective(DisplaySlot.SIDEBAR).unregister();
+            }
         }
     }
 
