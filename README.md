@@ -27,12 +27,17 @@ Command |	Description	| Permission
 * Customizable update polling period
 
 # Future Features
-* Nothing planned
+* Get a workaround for the re-arranging scores.
 
 # Caveats
-* None found
+* The scores will re-arrange themselves on the board in order of decreasing value. This is a limitation of the native Scoreboard API within Minecraft.
 
 # Changelog
-* Version 1.0 (Current)
+* Version 1.0.1 (Current)
+* Built on Spigot-1.16.1
+* Patched an NPE error that would be thrown when a player quits the server.
+* Added update checking
+
+* Version 1.0
 * Built on Spigot-1.16.1
 * Release
