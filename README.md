@@ -38,6 +38,7 @@ Command |	Description	| Permission
 * Patched an NPE error that would be thrown when a player quits the server.
 * Added update checking
 
+
 * Version 1.0
 * Built on Spigot-1.16.1
 * Release
