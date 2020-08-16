@@ -1,0 +1,7 @@
+# Config file for BuddyLocator
+Config:
+  use_permissions: false
+  pollingperiod: 5 # in ticks (20 per second)
+  showhearts: true
+  showlevel: true
+  showworld: false
