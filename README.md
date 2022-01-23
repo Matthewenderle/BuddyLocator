@@ -1,4 +1,4 @@
-# BuddyWatch
+# BuddyLocator
 A simple Minecraft Spigot plugin to display the coordinates to your buddy.
 
 # Intro
